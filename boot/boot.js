@@ -1982,7 +1982,7 @@ $tw.boot.doesTaskMatchPlatform = function(taskModule) {
 	var platforms = taskModule.platforms;
 	if(platforms) {
 		for(var t=0; t<platforms.length; t++) {
-			if((platforms[t] === "browser" && !$tw.browser) || (platforms[t] === "node" && !$tw.node)) {
+			if((platforms[t] === "browser" && !$tw.browser) || (platforms[t] === "node" && !$tw.node) || (platforms[t] === "electron" && !$tw.electron)) {
 				return false;
 			}
 		}

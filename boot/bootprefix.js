@@ -30,6 +30,13 @@ if(!("nodeWebKit" in $tw)) {
 	$tw.nodeWebKit = $tw.node && global.window && global.window.nwDispatcher ? {} : null;
 }
 
+if(!("electron" in $tw)) {
+	$tw.electron = $tw.node && global.window && 'electron' in process.versions ? {version:process.versions['electron']} : null;
+}
+
+if ($tw.browser && $tw.electron)
+	$tw.node = null;
+
 // Set default boot tasks
 $tw.boot.tasks = {
 	trapErrors: !!($tw.browser && !$tw.node),
